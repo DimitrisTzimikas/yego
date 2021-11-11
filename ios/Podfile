@@ -13,5 +13,9 @@ target 'TinyYego' do
     # Pods for testing
   end
 
+  # React Native Maps dependencies
+  rn_maps_path = '../node_modules/react-native-maps'
+  pod 'react-native-google-maps', :path => rn_maps_path
+
   use_native_modules!
 end

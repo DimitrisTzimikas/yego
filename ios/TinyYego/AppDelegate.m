@@ -3,6 +3,8 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+// GoogleMaps: https://github.com/react-native-maps/react-native-maps/blob/master/docs/installation.md
+#import <GoogleMaps/GoogleMaps.h>
 
 #ifdef FB_SONARKIT_ENABLED
 #import <FlipperKit/FlipperClient.h>
@@ -27,6 +29,8 @@ static void InitializeFlipper(UIApplication *application) {
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+// Ideally I would add api key to .env using react-native-ulimate-config library
+[GMSServices provideAPIKey:@"qxECK0jBFkLEk4glKDHx3Z88mC11mUfxq7NMR2EY"]; // add this line using the api key obtained from Google Console
 #ifdef FB_SONARKIT_ENABLED
   InitializeFlipper(application);
 #endif
