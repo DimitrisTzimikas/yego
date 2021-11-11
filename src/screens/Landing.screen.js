@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 
 /* Local Files */
-import Map from "../components/StaticMap";
+import Map from "../components/Map";
 
 const LandingScreen = () => (
   <>
