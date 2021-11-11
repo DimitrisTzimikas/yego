@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 export function getCachedState() {
   return AsyncStorage.getItem("CACHE_KEY")
     .then((response) => JSON.parse(response) || {});
-};
+}
 
 export function createAsyncStorageMiddleware(blacklistedKeys = []) {
   return ((store) => (next) => (action) => {

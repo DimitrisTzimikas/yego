@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import App from '../screens/App';
+/* Local Files */
+import LandingScreen from '../screens/Landing.screen';
 
 const mapStateToProps = (state, props) => ({
 });
@@ -12,6 +13,6 @@ const mapDispatchToProps = (dispatch, props) => ({
 const AppContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(App);
+)(LandingScreen);
 
 export default AppContainer;

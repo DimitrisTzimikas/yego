@@ -1,10 +1,3 @@
-/*
-* https://github.com/facebook/react-native
-*
-* @format
-* @flow strict-local
-*/
-
 import React from 'react';
 import {
   SafeAreaView,
@@ -15,7 +8,7 @@ import {
 } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
-const App = () => (
+const LandingScreen = () => (
   <>
     <StatusBar barStyle="dark-content" />
     <SafeAreaView>
@@ -47,4 +40,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default LandingScreen;
