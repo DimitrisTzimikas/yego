@@ -1,42 +1,27 @@
 import React from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
   View,
-  Text,
   StatusBar,
 } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+
+/* Local Files */
+import Map from "../components/StaticMap";
 
 const LandingScreen = () => (
   <>
     <StatusBar barStyle="dark-content" />
-    <SafeAreaView>
-      <View style={styles.body}>
-        <View style={styles.sectionContainer}>
-          <Text style={styles.sectionTitle}>YEGO - Technical Test</Text>
-        </View>
-      </View>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <Map />
+    </View>
   </>
 );
 
 const styles = StyleSheet.create({
-  body: {
-    backgroundColor: Colors.white,
-    justifyContent: 'center',
+  container: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'flex-end',
     alignItems: 'center',
-    height: '100%',
-    width: '100%',
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.dark,
   },
 });
 
