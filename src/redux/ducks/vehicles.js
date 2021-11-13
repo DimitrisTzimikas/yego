@@ -17,7 +17,7 @@ const vehicles = (state = initialState, {type, payload}) => {
     case FETCH_VEHICLES:
       return {
         ...state,
-        vehicles: payload,
+        vehicles: payload.slice(0, 100),
       };
     case UPDATE_VEHICLES:
       return {
