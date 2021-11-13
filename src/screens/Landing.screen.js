@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from 'react-redux';
 /* Local Files */
 import Map from '../components/Map';
 import {fetchVehicles, getVehicle} from '../redux/ducks/vehicles';
+import BottomPanel from '../components/BottomPanel';
 
 const LandingScreen = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const LandingScreen = () => {
       <StatusBar barStyle="dark-content" />
       <View style={styles.container}>
         <Map />
+        <BottomPanel />
       </View>
     </>
   );
