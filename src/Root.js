@@ -1,39 +1,19 @@
 import React from 'react';
-import { Provider } from 'react-redux';
+import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
 
 /* Local Files */
-import configureStore from './redux/configureStore';
-import { makeCancelable } from '../static/misc/utils';
+import {store, persistor} from './redux/store';
 import AppContainer from './containers/AppContainer';
 
-class Root extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
-  componentDidMount() {
-    this.configureStore = makeCancelable(configureStore());
-    this.configureStore.promise.then((store) => {
-      this.setState({ store });
-    }).catch((e) => console.warn("configureStore canceled:", e && e.message ? e.message : e));
-  }
-
-  componentWillUnmount() {
-    if (this.configureStore) this.configureStore.cancel();
-  }
-
-  render() {
-    if (this.state.store) {
-      return (
-        <Provider store={this.state.store}>
-          <AppContainer />
-        </Provider>
-      );
-    }
-    return null;
-  }
-}
+const Root = () => {
+  return (
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <AppContainer />
+      </PersistGate>
+    </Provider>
+  );
+};
 
 export default Root;
