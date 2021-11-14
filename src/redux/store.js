@@ -11,7 +11,7 @@ const middlewares = [];
 const config = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['vehicles'],
+  whitelist: [''], // 'vehicles', 'user'
   blacklist: [''],
 };
 

@@ -3,11 +3,12 @@ import {url, apiKey} from '../../constants/vehiclesAPI';
 
 /*  Types */
 export const FETCH_VEHICLES = 'fetch_vehicles';
-export const UPDATE_VEHICLES = 'update_vehicles';
+export const SELECTED_VEHICLE = 'selected_vehicle';
 export const ERROR = 'error';
 
 const initialState = {
   vehicles: null,
+  vehicle: null,
   error: '',
 };
 
@@ -19,10 +20,10 @@ const vehicles = (state = initialState, {type, payload}) => {
         ...state,
         vehicles: payload.slice(0, 100),
       };
-    case UPDATE_VEHICLES:
+    case SELECTED_VEHICLE:
       return {
         ...state,
-        vehicles: payload,
+        vehicle: payload,
       };
     case ERROR:
       return {
@@ -35,7 +36,7 @@ const vehicles = (state = initialState, {type, payload}) => {
 };
 
 /*  Sync Actions */
-const updateVehicles = (payload) => ({type: UPDATE_VEHICLES, payload});
+const selectedVehicle = (payload) => ({type: SELECTED_VEHICLE, payload});
 
 /*  Async Actions */
 const fetchVehicles = () => {
@@ -55,6 +56,7 @@ const fetchVehicles = () => {
 };
 
 /*  Selectors */
-const getVehicle = (state) => state.vehicles.vehicles;
+const getVehicles = (state) => state.vehicles.vehicles;
+const getVehicle = (state) => state.vehicles.vehicle;
 
-export {vehicles, getVehicle, fetchVehicles, updateVehicles};
+export {vehicles, getVehicles, fetchVehicles, selectedVehicle, getVehicle};

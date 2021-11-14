@@ -4,13 +4,13 @@ import {useDispatch, useSelector} from 'react-redux';
 
 /* Local Files */
 import Map from '../components/Map';
-import {fetchVehicles, getVehicle} from '../redux/ducks/vehicles';
 import BottomPanel from '../components/BottomPanel';
+import {fetchVehicles, getVehicles} from '../redux/ducks/vehicles';
 
 const LandingScreen = () => {
   const dispatch = useDispatch();
   const rehydrated = useSelector((state) => state._persist.rehydrated);
-  const vehicles = useSelector((state) => getVehicle(state));
+  const vehicles = useSelector((state) => getVehicles(state));
 
   useEffect(() => {
     if (rehydrated && vehicles) {
@@ -38,5 +38,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
+LandingScreen.whyDidYouRender = false;
 
 export default LandingScreen;
